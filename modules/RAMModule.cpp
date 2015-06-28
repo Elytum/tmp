@@ -46,7 +46,7 @@ void		RAMModule::drawContent( int posX, int posY, int width, int height, Window 
 	size_t len = sizeof(int64_t);
 
 	sysctlbyname("hw.memsize", &mem, &len, NULL, 0);
-	maxmem = std::to_string(mem / BSIZE) + BNAME;
+	maxmem = SSTR(mem / BSIZE) + BNAME;
 
 	vm_size_t page_size;
 	mach_port_t mach_port;
@@ -64,8 +64,8 @@ void		RAMModule::drawContent( int posX, int posY, int width, int height, Window 
 		long long used_memory = ((int64_t)vm_stats.active_count +
 								 (int64_t)vm_stats.inactive_count +
 								 (int64_t)vm_stats.wire_count) *  (int64_t)page_size;	
-		freemem = std::to_string(free_memory / BSIZE) + BNAME;
-		usedmem = std::to_string(used_memory / BSIZE) + BNAME;
+		freemem = SSTR(free_memory / BSIZE) + BNAME;
+		usedmem = SSTR(used_memory / BSIZE) + BNAME;
 	}
 	else
 	{
@@ -77,7 +77,7 @@ void		RAMModule::drawContent( int posX, int posY, int width, int height, Window 
 	// if (0 == statfs("/", &stats))
 	// {
 	// 	uint64_t maxswapsize = stats.f_bsize * stats.f_bfree;
-	// 	maxswap = std::to_string(maxswapsize / BSIZE) + BNAME;
+	// 	maxswap = SSTR(maxswapsize / BSIZE) + BNAME;
 	// }
 
 	// xsw_usage vmusage = xsw_usage();
@@ -85,7 +85,7 @@ void		RAMModule::drawContent( int posX, int posY, int width, int height, Window 
 	// if( sysctlbyname("vm.swapusage", &vmusage, &size, NULL, 0)!=0 )
 	// 	usedswap = std::string('x', width);
 	// else
-	// 	usedswap = std::to_string(vmusage.xsu_used);
+	// 	usedswap = SSTR(vmusage.xsu_used);
 
 	posY += (height - 3) / 2;
 

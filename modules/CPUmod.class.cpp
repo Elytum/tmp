@@ -153,15 +153,15 @@ void	CPUmod::drawContent( int posX, int posY, int width, int height, Window cons
 	posY++;
 	//printType(posX, posY, width, height, win, "", _info.brand);
 	//posY++;
-	printType(posX, posY, width, height, win, "CORE: ", std::to_string(_info.coreNB).c_str());
+	printType(posX, posY, width, height, win, "CORE: ", SSTR(_info.coreNB).c_str());
 	posY++;
-	printType(posX, posY, width, height, win, "FREQUENCY: ", std::to_string(_info.clockinfo.hz).c_str());
+	printType(posX, posY, width, height, win, "FREQUENCY: ", SSTR(_info.clockinfo.hz).c_str());
 	posY++;
-	printType(posX, posY, width, height, win, "MS/HZ TICK: ", std::to_string(_info.clockinfo.tick).c_str());
+	printType(posX, posY, width, height, win, "MS/HZ TICK: ", SSTR(_info.clockinfo.tick).c_str());
 	posY++;
-	printType(posX, posY, width, height, win, "CPU LOAD: ", std::to_string(_info.cpuLoad).c_str());
+	printType(posX, posY, width, height, win, "CPU LOAD: ", SSTR(_info.cpuLoad).c_str());
 	posY++;
-	printType(posX, posY, width, height, win, "CPU FREE: ", std::to_string(_info.cpuFree).c_str());
+	printType(posX, posY, width, height, win, "CPU FREE: ", SSTR(_info.cpuFree).c_str());
 }
 
 CPUmod::~CPUmod( void )

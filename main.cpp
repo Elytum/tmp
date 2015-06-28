@@ -8,6 +8,7 @@
 #include "CPUmod.class.hpp"
 #include "PonyModule.hpp"
 #include "NetworkModule.hpp"
+#include "StudentModule.hpp"
 #include "NyanCatModule.hpp"
 #include "Tools.class.hpp"
 
@@ -58,6 +59,8 @@ void	parseConfig( Window & win ) {
 					win.addModule(new CPUmod(), pos);
 				else if (array[2] == "Network")
 					win.addModule(new NetworkModule(), pos);
+				else if (array[2] == "Student")
+					win.addModule(new StudentModule(), pos);
 			}
 		}
     }

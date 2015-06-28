@@ -4,6 +4,12 @@
 #include <IMonitorModule.hpp>
 #include <Config.hpp>
 #include <iostream>
+#include <sstream>
+
+#include <sstream>
+
+#define SSTR( x ) dynamic_cast< std::ostringstream & >( \
+        ( std::ostringstream() << std::dec << x ) ).str()
 
 class Window;
 
