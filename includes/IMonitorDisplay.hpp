@@ -51,6 +51,8 @@ public:
 	virtual void		flush( void ) = 0;
 	virtual void		addModule( MonitorModule * module, int row ) = 0;
 	virtual void		refresh( void ) = 0;
+	virtual int			getWidth( void ) const = 0;
+	virtual int			getHeight( void ) const = 0;
 };
 
 #endif

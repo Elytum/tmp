@@ -51,12 +51,14 @@ NyanCatModule::NyanCatModule( NyanCatModule const & cpy ) : MonitorModule(WIDTH 
 	(void)cpy;
 }
 
+#define TICK_NB 1250
+
 NyanCatModule::~NyanCatModule( void ) {
 }
 	
 void	NyanCatModule::drawContent( int posX, int posY, int width, int height, Window const & win ) {
 	static int frame = 0;
-	static int tick = 200000;
+	static int tick = TICK_NB;
 
 	int pos = 0;
 	int i = 0;
@@ -74,7 +76,7 @@ void	NyanCatModule::drawContent( int posX, int posY, int width, int height, Wind
 				if (FRAME0[i] != 'b')
 					win.print(posX + x, posY + y, ' ', FRAME0[i]);
 				if (--tick == 0) {
-					tick = 200000;
+					tick = TICK_NB;
 					frame = 1;
 				}
 			}
@@ -82,7 +84,7 @@ void	NyanCatModule::drawContent( int posX, int posY, int width, int height, Wind
 				if (FRAME1[i] != 'b')
 					win.print(posX + x, posY + y, ' ', FRAME1[i]);
 				if (--tick == 0) {
-					tick = 200000;
+					tick = TICK_NB;
 					frame = 2;
 				}
 			}
@@ -90,7 +92,7 @@ void	NyanCatModule::drawContent( int posX, int posY, int width, int height, Wind
 				if (FRAME2[i] != 'b')
 					win.print(posX + x, posY + y, ' ', FRAME2[i]);
 				if (--tick == 0) {
-					tick = 200000;
+					tick = TICK_NB;
 					frame = 0;
 				}
 			}

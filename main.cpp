@@ -77,6 +77,7 @@ int		main( void )
 		win->flush();
 		if (wgetch(win->getWindow()) == 'q')
 			break;
+		usleep(25000);
 	}
 	win->close();
 	return (0);

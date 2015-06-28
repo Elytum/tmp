@@ -39,6 +39,8 @@ void								ModuleRow::draw( int x, int y, Window const & win ) {
 
 	while (i < s) {
 		if (modules[i]) {
+			if (win.getWidth() < x + width)
+				return ;
 			modules[i]->draw(x, y, width, win);
 			y += modules[i]->getHeight();
 		}
