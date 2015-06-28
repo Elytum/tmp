@@ -216,10 +216,11 @@ void		Window::refresh( void ) {
 	struct winsize w;
 	ioctl(0, TIOCGWINSZ, &w);
 	width = w.ws_col;
-	height = w.ws_row;
+	height = w.ws_row - 1;
 
+	print(0, 0, "System Monitor", 'R');
 	while (p < i) {
-		modules[p].draw(posX, 0, *this);
+		modules[p].draw(posX, 1, *this);
 		posX += modules[p].getWidth();
 		++p;
 	}
