@@ -57,11 +57,11 @@ void		MonitorModule::draw( int posX, int posY, int width, Window const & win ) {
 		win.printHLine(posX, posY + 2, width);
 		int diff = width - 2 - _title.size();
 		if (diff > 0) {
-			win.print(posX + 1 + diff / 2, posY + 1, _title.c_str(), RED);
+			win.print(posX + 2 + diff / 2, posY + 1, _title.c_str(), RED);
 			drawContent(posX + 1, posY + 3, width - 1, _height - 3, win);
 		}
 		else if (diff == 0) {
-			win.print(posX + 1, posY + 1, _title.c_str(), RED);
+			win.print(posX + 2, posY + 1, _title.c_str(), RED);
 			drawContent(posX + 1, posY + 3, width - 1, _height - 3, win);
 		}
 		else if (bufSize >= 2 && width - 2 < bufSize) {

@@ -41,8 +41,8 @@ void					NetworkModule::drawContent( int posX, int posY, int width, int height, 
 
 	if (!input)
 		return ;
-	while(!feof(input))
-		if(fgets(buffer, sizeof(buffer), input) != NULL)
+	while (!feof(input))
+		if (fgets(buffer, sizeof(buffer), input) != NULL)
 			result << buffer;
 	pclose(input);
 

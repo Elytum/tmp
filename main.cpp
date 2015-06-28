@@ -16,7 +16,7 @@
 #include <string>
 #include <fstream>
 #include <stdlib.h>
-
+#include <curl/curl.h>
 void	parseConfig( Window & win ) {
 	std::ifstream file(".config");
     std::string str; 

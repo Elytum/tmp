@@ -50,13 +50,13 @@ void	printType( int posX, int posY, int width, int height, Window const &win, ch
 
 void	OSinfo::drawContent( int posX, int posY, int width, int height, Window const & win )
 {
-	printType(posX, posY, width, height, win, "Model: ", _info.model);
+	printType(posX + (width - 17) / 2, posY, width, height, win, "Model: ", _info.model);
 	posY++;	
-	printType(posX, posY, width, height, win, "Machine: ", _info.machine);
+	printType(posX + (width - 17) / 2, posY, width, height, win, "Machine: ", _info.machine);
 	posY++;
-	printType(posX, posY, width, height, win, "OStype: ", _info.ostype);
+	printType(posX + (width - 17) / 2, posY, width, height, win, "OStype: ", _info.ostype);
 	posY++;	
-	printType(posX, posY, width, height, win, "OSrelease: ", _info.osrelease);
+	printType(posX + (width - 17) / 2, posY, width, height, win, "OSrelease: ", _info.osrelease);
 	posY++;
 }
 

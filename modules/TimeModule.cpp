@@ -12,7 +12,7 @@
 
 #include "TimeModule.hpp"
 
-#define REQUIRED_WIDTH 22
+#define REQUIRED_WIDTH 14
 #define REQUIRED_HEIGHT 5
 
 TimeModule::TimeModule( void ): MonitorModule(REQUIRED_WIDTH, REQUIRED_HEIGHT, "Time & Date") {

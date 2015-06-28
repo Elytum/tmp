@@ -1,8 +1,8 @@
 #ifndef CONFIG_HPP
 # define CONFIG_HPP
 
-#define MAX_WIDTH_MODULES 50
-#define MAX_HEIGHT_MODULES 50
+#define MAX_WIDTH_MODULES 500
+#define MAX_HEIGHT_MODULES 500
 
 enum position {
 	TOP = 0,

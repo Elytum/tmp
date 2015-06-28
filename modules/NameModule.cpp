@@ -12,7 +12,7 @@
 
 #include "NameModule.hpp"
 
-#define REQUIRED_WIDTH 28
+#define REQUIRED_WIDTH 27
 #define REQUIRED_HEIGHT 5
 
 NameModule::NameModule( void ): MonitorModule(REQUIRED_WIDTH, REQUIRED_HEIGHT, "HostName & UserName") {
@@ -67,9 +67,7 @@ void		NameModule::drawContent( int posX, int posY, int width, int height, Window
 	strcat(strUser, username.c_str());
 
 	if (width < REQUIRED_WIDTH - 1 || height < REQUIRED_HEIGHT - 3)
-	{
 		return ;
-	}
 
 	win.print(posX + (width - strlen(strHost)) / 2, posY + 0, strHost);
 	win.print(posX + (width - strlen(strHost)) / 2, posY + 1, strUser);
