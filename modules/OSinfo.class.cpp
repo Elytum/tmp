@@ -12,7 +12,7 @@
 
 #include "OSinfo.class.hpp"
 #include <string>
-OSinfo::OSinfo( void ) : MonitorModule(45, 7, "OS informations")
+OSinfo::OSinfo( void ) : MonitorModule(28, 7, "OS informations")
 {
 	updateInfo();
 }

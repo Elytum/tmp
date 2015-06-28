@@ -20,7 +20,7 @@
 static unsigned long long _previousTotalTicks = 0;
 static unsigned long long _previousIdleTicks = 0;
 
-CPUmod::CPUmod( void ) : MonitorModule(75, 11, "CPU informations")
+CPUmod::CPUmod( void ) : MonitorModule(30, 11, "CPU informations")
 {
 	int a = GetCPULoad() * 100;
 	this->_info.cpuLoad = a;
@@ -31,7 +31,7 @@ CPUmod::CPUmod( void ) : MonitorModule(75, 11, "CPU informations")
 }
 
 
-CPUmod::CPUmod( std::string str ) : MonitorModule(75, 11, str)
+CPUmod::CPUmod( std::string str ) : MonitorModule(30, 11, str)
 {
 	int a = GetCPULoad() * 100;
 	this->_info.cpuLoad = a;

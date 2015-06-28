@@ -12,7 +12,7 @@
 
 #include "NameModule.hpp"
 
-#define REQUIRED_WIDTH 27
+#define REQUIRED_WIDTH 32
 #define REQUIRED_HEIGHT 5
 
 NameModule::NameModule( void ): MonitorModule(REQUIRED_WIDTH, REQUIRED_HEIGHT, "HostName & UserName") {

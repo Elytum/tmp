@@ -1,11 +1,11 @@
 #include "../includes/StudentModule.hpp"
 
-StudentModule::StudentModule( void ):MonitorModule(20, 11, "USER INFO")
+StudentModule::StudentModule( void ):MonitorModule(35, 11, "Student")
 {
 
 }
 
-StudentModule::StudentModule( string name ):MonitorModule(20, 11, name)
+StudentModule::StudentModule( string name ):MonitorModule(35, 11, name)
 {
 
 }

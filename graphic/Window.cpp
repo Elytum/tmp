@@ -220,6 +220,8 @@ void		Window::refresh( void ) {
 
 	print(0, 0, "System Monitor", 'R');
 	while (p < i) {
+		if (posX + modules[p].getWidth() > width)
+			return ;
 		modules[p].draw(posX, 1, *this);
 		posX += modules[p].getWidth();
 		++p;

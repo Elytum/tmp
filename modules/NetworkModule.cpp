@@ -1,11 +1,11 @@
 #include "../includes/NetworkModule.hpp"
 
-NetworkModule::NetworkModule( void ):MonitorModule(17, 7, "NETWORK")
+NetworkModule::NetworkModule( void ):MonitorModule(25, 7, "NETWORK")
 {
 
 }
 
-NetworkModule::NetworkModule( string name ):MonitorModule(17, 7, name)
+NetworkModule::NetworkModule( string name ):MonitorModule(25, 7, name)
 {
 
 }

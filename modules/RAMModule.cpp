@@ -1,11 +1,11 @@
 #include "RAMModule.hpp"
 
-RAMModule::RAMModule( void ):MonitorModule(17, 6, "RAM USAGE")
+RAMModule::RAMModule( void ):MonitorModule(25, 6, "RAM USAGE")
 {
 
 }
 
-RAMModule::RAMModule( string name ):MonitorModule(17, 6, name)
+RAMModule::RAMModule( string name ):MonitorModule(25, 6, name)
 {
 
 }
