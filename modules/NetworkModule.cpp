@@ -37,9 +37,10 @@ std::string				NetworkModule::_result;
 void					NetworkModule::_update( void )
 {
 	time_t	cl = clock();
-	if (_time + 1000000 < cl)
+	(void)_time;
+	if (9000 < cl % 10000)
 	{
-		NetworkModule::_time = cl;
+		_time = cl;
 		FILE				*input;
 		char				buffer[128];
 
@@ -95,6 +96,13 @@ void					NetworkModule::drawContent( int posX, int posY, int width, int height, 
 		width = maxWidth;
 	
 	int xoffset = width / 2 - 8;
+	// (void)xoffset;
+	// (void)win;
+	// (void)posX;
+	// std::cout << pckt_i.str() << std::endl;
+	// std::cout << byte_i.str() << std::endl;
+	// std::cout << pckt_o.str() << std::endl;
+	// std::cout << byte_o.str() << std::endl;
 
 	win.print(posX + xoffset, posY + 0, pckt_i.str().c_str(), 'G');
 	win.print(posX + xoffset, posY + 1, byte_i.str().c_str(), 'G');
