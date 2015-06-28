@@ -2,6 +2,8 @@
 
 Window::Window() : opened(false),
 	window_white(NULL), main_window(NULL) {
+		width = 10000;
+		height = 10000;
 		modules.resize(MAX_WIDTH_MODULES);
 }
 
@@ -160,7 +162,7 @@ void		Window::print( int x, int y, char const *c, char const color ) const {
 }
 
 void		Window::print( int x, int y, char const c, char const color ) const {
-	static char tmp[2] = {'\0'};
+	static char tmp[2];
 
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;

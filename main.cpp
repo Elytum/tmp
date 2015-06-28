@@ -48,7 +48,7 @@ void	parseConfig( Window & win ) {
 					win.addModule(new Tools(), pos);
 				else if (array[2] == "NyanCat")
 					win.addModule(new NyanCatModule(), pos);
-				else if (array[2] == "PonyModule")
+				else if (array[2] == "Pony")
 					win.addModule(new PonyModule(), pos);
 				else if (array[2] == "OS")
 					win.addModule(new OSinfo(), pos);
@@ -64,16 +64,15 @@ void	parseConfig( Window & win ) {
 int		main( void )
 {
 
-	Window				win;
-	win.open();
-	parseConfig(win);
+	Window				*win = new Window;
+	win->open();
+	parseConfig(*win);
 	while (42) {
-		win.refresh();
-		win.flush();
-		if (wgetch(win.getWindow()) == 'q')
+		win->refresh();
+		win->flush();
+		if (wgetch(win->getWindow()) == 'q')
 			break;
 	}
-	win.close();
+	win->close();
 	return (0);
-	(void)win;
 }

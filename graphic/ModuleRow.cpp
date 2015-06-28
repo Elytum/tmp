@@ -38,8 +38,10 @@ void								ModuleRow::draw( int x, int y, Window const & win ) {
 	int i = 0;
 
 	while (i < s) {
-		modules[i]->draw(x, y, width, win);
-		y += modules[i]->getHeight();
+		if (modules[i]) {
+			modules[i]->draw(x, y, width, win);
+			y += modules[i]->getHeight();
+		}
 		++i;
 	}
 }
