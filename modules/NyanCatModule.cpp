@@ -61,25 +61,34 @@ void	NyanCatModule::drawContent( int posX, int posY, int width, int height, Wind
 	int pos = 0;
 	int i = 0;
 
+	for (int y = 0; (y < height); ++y) {
+		for (int x = 0; (x < width); ++x) {
+			win.print(posX + x, posY + y, ' ', 'b');
+		}
+	}
+	posX += (width - WIDTH) / 2;
 	for (int y = 0; (y < height && y <= HEIGHT); ++y) {
 		i = pos;
 		for (int x = 0; (x < width && x <= WIDTH); ++x) {
 			if (frame == 0) {
-				win.print(posX + x, posY + y, ' ', FRAME0[i]);
+				if (FRAME0[i] != 'b')
+					win.print(posX + x, posY + y, ' ', FRAME0[i]);
 				if (--tick == 0) {
 					tick = 200000;
 					frame = 1;
 				}
 			}
 			else if (frame == 1) {
-				win.print(posX + x, posY + y, ' ', FRAME1[i]);
+				if (FRAME1[i] != 'b')
+					win.print(posX + x, posY + y, ' ', FRAME1[i]);
 				if (--tick == 0) {
 					tick = 200000;
 					frame = 2;
 				}
 			}
 			else if (frame == 2) {
-				win.print(posX + x, posY + y, ' ', FRAME2[i]);
+				if (FRAME2[i] != 'b')
+					win.print(posX + x, posY + y, ' ', FRAME2[i]);
 				if (--tick == 0) {
 					tick = 200000;
 					frame = 0;
@@ -87,6 +96,6 @@ void	NyanCatModule::drawContent( int posX, int posY, int width, int height, Wind
 			}
 			++i;
 		}
-		pos += width;
+		pos += WIDTH + 1;
 	}
 }
