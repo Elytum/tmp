@@ -195,6 +195,8 @@ void	Window::flush( void )	{
 }
 
 void		Window::addModule( MonitorModule * module, int row ) {
+	if (row < 0 || row > MAX_WIDTH_MODULES)
+		row = MAX_WIDTH_MODULES - 1;
 	modules[row].addModule(module);
 }
 

@@ -30,22 +30,37 @@ string			NetworkModule::offsetStr(string str) const
 {
 	return (string((getWidth() - str.size()) / 2.0, ' ') + str);
 }
+
+time_t					NetworkModule::_time = 0;
+std::string				NetworkModule::_result;
+
+void					NetworkModule::_update( void )
+{
+	time_t	cl = clock();
+	if (_time + 1000000 < cl)
+	{
+		NetworkModule::_time = cl;
+		FILE				*input;
+		char				buffer[128];
+
+		input = popen("netstat -ib en0 | grep Link#4 | awk '{print $5, $7, $8, $10}'", "r");
+
+		_result.clear();
+		if (!input)
+			return ;
+		while(!feof(input))
+			if(fgets(buffer, sizeof(buffer), input) != NULL)
+				_result += buffer;
+		pclose(input);
+	}
+}
 	
 void					NetworkModule::drawContent( int posX, int posY, int width, int height, Window const & win )
 {
-	FILE				*input;
-    char				buffer[512];
+
+	_update();
 	std::stringstream	result;
-
-	input = popen("netstat -ib en0 | grep Link#4 | awk '{print $5, $7, $8, $10}'", "r");
-
-	if (!input)
-		return ;
-	while (!feof(input))
-		if (fgets(buffer, sizeof(buffer), input) != NULL)
-			result << buffer;
-	pclose(input);
-
+	result << NetworkModule::_result;
 	long int			pckt_i_data;
 	long int			byte_i_data;
 	long int			pckt_o_data;
@@ -72,32 +87,19 @@ void					NetworkModule::drawContent( int posX, int posY, int width, int height, 
 	newWidth[0] = pckt_i.str().size();
 	newWidth[1] = byte_i.str().size();
 	newWidth[2] = pckt_o.str().size();
-	newWidth[2] = byte_o.str().size();
+	newWidth[3] = byte_o.str().size();
 	int maxWidth = *std::max_element(newWidth, newWidth + 4);
 	if (maxWidth > getWidth())
 		setWidth(maxWidth);
 	if (maxWidth > width)
 		width = maxWidth;
 	
-	int xoffset[4];
-	xoffset[0] = (width - pckt_i.str().size()) / 2;
-	xoffset[1] = (width - byte_i.str().size()) / 2;
-	xoffset[2] = (width - pckt_o.str().size()) / 2;
-	xoffset[3] = (width - byte_o.str().size()) / 2;
+	int xoffset = width / 2 - 8;
 
-	win.print(posX + xoffset[0], posY + 0, pckt_i.str().c_str());
-	win.print(posX + xoffset[1], posY + 1, byte_i.str().c_str());
-	win.print(posX + xoffset[2], posY + 2, pckt_o.str().c_str());
-	win.print(posX + xoffset[3], posY + 3, byte_o.str().c_str());
+	win.print(posX + xoffset, posY + 0, pckt_i.str().c_str(), 'G');
+	win.print(posX + xoffset, posY + 1, byte_i.str().c_str(), 'G');
+	win.print(posX + xoffset, posY + 2, pckt_o.str().c_str(), 'Y');
+	win.print(posX + xoffset, posY + 3, byte_o.str().c_str(), 'Y');
+	(void)width;
+	(void)height;
 }
-
-
-
-
-
-
-
-
-
-
-

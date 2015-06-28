@@ -56,6 +56,8 @@ void	parseConfig( Window & win ) {
 					win.addModule(new RAMModule(), pos);
 				else if (array[2] == "CPU")
 					win.addModule(new CPUmod(), pos);
+				else if (array[2] == "Network")
+					win.addModule(new NetworkModule(), pos);
 			}
 		}
     }
