@@ -7,6 +7,13 @@ Window::Window() : opened(false),
 		modules.resize(MAX_WIDTH_MODULES);
 }
 
+Window::Window(Window const& ) : opened(false),
+	window_white(NULL), main_window(NULL) {
+		width = 10000;
+		height = 10000;
+		modules.resize(MAX_WIDTH_MODULES);
+}
+
 Window::~Window() {
 	if (main_window)
 		delwin(main_window);

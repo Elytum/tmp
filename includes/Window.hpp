@@ -21,6 +21,7 @@ class Window : public IMonitorDisplay
 {
 public:
 	Window();
+	Window( Window const& );
 	virtual ~Window();
 
 	virtual int			getSeenWidth() const;

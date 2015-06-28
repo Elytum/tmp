@@ -35,6 +35,8 @@ SRCS =	main.cpp					\
 
 INC = 	includes
 
+OPT = -O2
+
 OBJS	=	$(SRCS:.cpp=.o)
 
 #--------------Actions----------------------#
@@ -44,10 +46,10 @@ all: $(NAME)
 EXE		=	ft_gkrellm
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -I $(INC) -lncurses -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -I $(INC) $(OPT) -lncurses -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -I $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INC) $(OPT) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
