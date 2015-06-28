@@ -38,6 +38,8 @@ public:
 	virtual void		flush( void );
 	virtual void		addModule( MonitorModule * module, int row );
 	virtual void		refresh( void );
+	virtual int			getWidth( void ) const;
+	virtual int			getHeight( void ) const;
 	WINDOW*				getWindow( void ) const;
 
 private:

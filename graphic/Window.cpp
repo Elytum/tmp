@@ -201,9 +201,15 @@ void		Window::addModule( MonitorModule * module, int row ) {
 }
 
 void		Window::refresh( void ) {
+	clr();
 	int	i = modules.size();
 	int p = 0;
 	int posX = 0;
+
+	struct winsize w;
+	ioctl(0, TIOCGWINSZ, &w);
+	width = w.ws_col;
+	height = w.ws_row;
 
 	while (p < i) {
 		modules[p].draw(posX, 0, *this);
@@ -216,6 +222,12 @@ WINDOW*		Window::getWindow( void ) const {
 	return main_window;
 }
 
+int			Window::getWidth( void )  const {
+	return width;
+}
+int			Window::getHeight( void )  const {
+	return height;
+}
 
 
 
